@@ -4,5 +4,7 @@ function Publisher(name, queueManager){
 }
 
 Publisher.prototype.publish =  function(){
-	PubSub.publish(Settings.PUBLISH_ITEM, {item:this.qManager.getNext()});
+	var nextItem = this.qManager.getNext();
+	console.log("Publishing: " + nextItem);
+	PubSub.publish(Settings.PUBLISH_ITEM, {item: nextItem});
 }

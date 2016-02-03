@@ -1,5 +1,5 @@
 function QueueManager(data){
-	this.data 				= data;
+	this.data 				= data.slice(0);
 	this.lastRemovedItem	= null;
 }
 

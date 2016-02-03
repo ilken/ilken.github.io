@@ -2,7 +2,6 @@
     var qManager 	= new QueueManager(Settings.alphabet);
 	qManager.shuffle();
 
-
     var publisher 	= new Publisher("Publisher", qManager);
     var subscribers = [];
 
@@ -17,5 +16,10 @@
 
     PubSub.subscribe(Settings.EMPTY_QUEUE, function(){
     	clearInterval(interval);
+    });
+
+    PubSub.subscribe(Settings.PUBLISH_WINNER, function(e, winner){
+        clearInterval(interval);
+		console.log("Winner: " + winner.data.name);
     });
 })();
