@@ -1,4 +1,5 @@
-const LOOKUP_URL = 'https://itunes.apple.com/lookup'
+// &v=1 busts Apple CDN's per-URL ACAO cache that can get poisoned by non-production origins.
+const LOOKUP_URL = 'https://itunes.apple.com/lookup?v=1'
 
 export interface ItunesAlbum {
   wrapperType: 'collection'
@@ -32,7 +33,7 @@ interface LookupResponse<T> {
 }
 
 async function lookup<T>(artistId: number, entity: 'album' | 'song', limit: number): Promise<T[]> {
-  const res = await fetch(`${LOOKUP_URL}?id=${artistId}&entity=${entity}&limit=${limit}`)
+  const res = await fetch(`${LOOKUP_URL}&id=${artistId}&entity=${entity}&limit=${limit}`)
   if (!res.ok) {
     throw new Error(`iTunes lookup failed for artist ${artistId}: ${res.status}`)
   }
