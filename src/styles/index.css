@@ -63,6 +63,12 @@
     @apply font-sans antialiased;
   }
 
+  button,
+  a,
+  [role='button'] {
+    cursor: pointer;
+  }
+
   body {
     @apply bg-chrome-deep text-ink;
     background-image: radial-gradient(120% 90% at 70% 0%, #4b443f 0%, #38332f 45%, #2c2825 100%);
