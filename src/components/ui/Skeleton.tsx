@@ -3,7 +3,11 @@ interface SkeletonProps {
 }
 
 export function Skeleton({ className }: SkeletonProps) {
-  return <div className={`animate-pulse rounded-xl bg-cream-sunken ${className ?? ''}`} />
+  return (
+    <div
+      className={`animate-shimmer rounded-xl bg-gradient-to-r from-cream-sunken via-cream-raised to-cream-sunken bg-[length:200%_100%] ${className ?? ''}`}
+    />
+  )
 }
 
 export function SongRowSkeletons({ count = 6 }: { count?: number }) {

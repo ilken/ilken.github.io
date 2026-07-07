@@ -35,6 +35,9 @@
 
   --animate-fade-up: fade-up 0.4s var(--ease-out-quint) both;
   --animate-eq: eq 0.9s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-grow-x: grow-x 0.4s var(--ease-out-quint) 150ms both;
+  --animate-fade-in: fade-in 0.4s var(--ease-out-quint) 200ms both;
 
   @keyframes fade-up {
     from {
@@ -55,6 +58,51 @@
     50% {
       transform: scaleY(1);
     }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes fade-in {
+    /* no `to` block — settles on the element's own computed opacity */
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes nav-pill-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
 
@@ -94,6 +142,35 @@
   }
   .stagger > *:nth-child(5) {
     animation-delay: 320ms;
+  }
+  .stagger > *:nth-child(6) {
+    animation-delay: 400ms;
+  }
+
+  .nav-pill-active {
+    position: relative;
+    isolation: isolate;
+  }
+  .nav-pill-active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 9999px;
+    background: var(--color-chrome-raised);
+    transform-origin: left center;
+    animation: nav-pill-in 250ms var(--ease-out-quint) both;
+  }
+
+  .marquee-mask {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 2rem;
+    animation: marquee 12s linear infinite;
   }
 }
 

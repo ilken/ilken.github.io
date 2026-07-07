@@ -1,5 +1,6 @@
 import { PauseIcon, PlayIcon, SkipNextIcon, SkipPrevIcon } from '@/components/icons'
 import { Waveform } from '@/components/music/Waveform'
+import { MarqueeText } from '@/components/ui/MarqueeText'
 import { formatSeconds } from '@/lib/format'
 import { usePlayer } from '@/player/use-player'
 
@@ -19,7 +20,10 @@ export function PlayerBar() {
               className="size-11 shrink-0 rounded-lg object-cover"
             />
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-chrome-text">{current.title}</p>
+              <MarqueeText
+                text={current.title}
+                className="text-sm font-semibold text-chrome-text"
+              />
               <p className="truncate text-xs text-chrome-muted">{current.artist}</p>
             </div>
           </>
@@ -43,9 +47,20 @@ export function PlayerBar() {
           onClick={toggle}
           disabled={!hasTrack}
           aria-label={isPlaying ? 'Pause' : 'Play'}
-          className="grid size-10 place-items-center rounded-full bg-lime text-lime-ink transition-transform duration-150 hover:scale-105 disabled:opacity-40"
+          className="grid size-10 place-items-center rounded-full bg-lime text-lime-ink transition-transform duration-150 hover:scale-105 active:scale-95 disabled:opacity-40"
         >
-          {isPlaying ? <PauseIcon className="size-5" /> : <PlayIcon className="size-5 pl-0.5" />}
+          <span className="relative grid size-5 place-items-center">
+            <PlayIcon
+              className={`col-start-1 row-start-1 size-5 pl-0.5 transition-all duration-150 ${
+                isPlaying ? 'scale-50 opacity-0' : 'scale-100 opacity-100'
+              }`}
+            />
+            <PauseIcon
+              className={`col-start-1 row-start-1 size-5 transition-all duration-150 ${
+                isPlaying ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+              }`}
+            />
+          </span>
         </button>
         <button
           type="button"

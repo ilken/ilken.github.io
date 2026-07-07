@@ -21,7 +21,7 @@ export function Sidebar() {
                   <Link
                     to={item.to}
                     className="block rounded-full px-4 py-2 text-sm font-medium text-chrome-muted transition-colors duration-150 hover:text-chrome-text"
-                    activeProps={{ className: '!bg-chrome-raised !text-lime' }}
+                    activeProps={{ className: 'nav-pill-active !text-lime' }}
                     activeOptions={{ exact: item.to === '/' }}
                   >
                     {item.label}

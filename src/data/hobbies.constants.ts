@@ -1,0 +1,47 @@
+export interface HobbyLink {
+  label: string
+  url: string
+}
+
+export interface HobbyEntry {
+  name: string
+  playlistLabel: string
+  description: string
+  stats: string[]
+  monogram: string
+  accentClass: string
+  links: HobbyLink[]
+}
+
+export const HOBBIES: HobbyEntry[] = [
+  {
+    name: 'Football',
+    playlistLabel: 'Terrace anthems',
+    description:
+      'Premier League devotee — enough of one to build PLAI, an AI score predictor with a live dashboard.',
+    stats: ['Premier League', 'Built PLAI'],
+    monogram: '⚽',
+    accentClass: 'from-[#1f6f50] to-[#123f2e]',
+    links: [{ label: 'PLAI', url: 'https://www.plaifootball.com/' }],
+  },
+  {
+    name: 'Chess',
+    playlistLabel: 'Endgame studies',
+    description:
+      'Student of the classics — My System on the shelf and a soft spot for positional play.',
+    stats: ['Positional play', 'Team Nimzowitsch'],
+    monogram: '♞',
+    accentClass: 'from-[#4a4541] to-[#2c2825]',
+    links: [],
+  },
+  {
+    name: 'Formula 1',
+    playlistLabel: 'High octane',
+    description:
+      'Race-weekend regular — built an F1 calendar with timezone support so lights out is never missed.',
+    stats: ['Every race weekend', 'Built f1-calendar'],
+    monogram: '🏁',
+    accentClass: 'from-[#8a1f1f] to-[#4d0f0f]',
+    links: [{ label: 'F1 Calendar', url: 'https://github.com/ilken/f1-calendar' }],
+  },
+]
