@@ -13,7 +13,7 @@ function HobbiesPage() {
       <p className="mb-6 -mt-2 text-sm text-ink-muted">
         Playlists off the clock — what plays on repeat outside work.
       </p>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2">
         {HOBBIES.map((hobby) => (
           <HobbyCard key={hobby.name} hobby={hobby} />
         ))}

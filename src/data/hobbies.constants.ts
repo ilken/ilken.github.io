@@ -15,16 +15,6 @@ export interface HobbyEntry {
 
 export const HOBBIES: HobbyEntry[] = [
   {
-    name: 'Guitar',
-    playlistLabel: 'Live sessions',
-    description:
-      'Gigging across London for 8+ years — composition, arrangement and production, with a 300+ song repertoire.',
-    stats: ['8+ years', '300+ songs', '5.0 ★ on Encore'],
-    monogram: '🎸',
-    accentClass: 'from-ember to-ember-deep',
-    links: [{ label: 'Encore Musicians', url: 'https://encoremusicians.com/Ilken-Bahcecioglu' }],
-  },
-  {
     name: 'Football',
     playlistLabel: 'Terrace anthems',
     description:
