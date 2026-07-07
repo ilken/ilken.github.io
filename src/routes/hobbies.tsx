@@ -28,7 +28,10 @@ function HobbyCard({ hobby }: { hobby: HobbyEntry }) {
       <div
         className={`grid h-28 place-items-center bg-gradient-to-br text-5xl ${hobby.accentClass}`}
       >
-        <span aria-hidden>{hobby.monogram}</span>
+        {/* emoji ignore text color; plain glyphs like ♞ need it on the dark gradients */}
+        <span aria-hidden className="text-cream/90">
+          {hobby.monogram}
+        </span>
       </div>
       <div className="p-5">
         <p className="text-xs font-semibold tracking-[0.15em] text-ink-muted uppercase">
