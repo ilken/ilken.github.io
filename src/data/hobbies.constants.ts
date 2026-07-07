@@ -25,6 +25,16 @@ export const HOBBIES: HobbyEntry[] = [
     links: [{ label: 'PLAI', url: 'https://www.plaifootball.com/' }],
   },
   {
+    name: 'Chess',
+    playlistLabel: 'Endgame studies',
+    description:
+      'Student of the classics — My System on the shelf and a soft spot for positional play.',
+    stats: ['Positional play', 'Team Nimzowitsch'],
+    monogram: '♞',
+    accentClass: 'from-[#4a4541] to-[#2c2825]',
+    links: [],
+  },
+  {
     name: 'Formula 1',
     playlistLabel: 'High octane',
     description:
