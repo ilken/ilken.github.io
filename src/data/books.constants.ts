@@ -17,41 +17,29 @@ export function bookCoverUrl(book: BookEntry): string | undefined {
   return undefined
 }
 
-// TODO: replace with Ilken's list
 export const BOOKS: BookEntry[] = [
   {
-    title: 'Designing Data-Intensive Applications',
-    author: 'Martin Kleppmann',
-    isbn: '9781449373320',
-    year: 2017,
-    status: 'reading',
+    title: 'My System',
+    author: 'Aron Nimzowitsch',
+    isbn: '9781880673850',
+    year: 1925,
   },
   {
-    title: 'The Pragmatic Programmer',
-    author: 'David Thomas & Andrew Hunt',
-    isbn: '9780135957059',
-    year: 2019,
-    status: 'read',
+    title: 'Fundamentals of Software Architecture',
+    author: 'Mark Richards & Neal Ford',
+    isbn: '9781492043454',
+    year: 2020,
   },
   {
-    title: 'Clean Code',
-    author: 'Robert C. Martin',
-    isbn: '9780132350884',
-    year: 2008,
-    status: 'read',
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    isbn: '9781455586691',
+    year: 2016,
   },
   {
     title: 'Atomic Habits',
     author: 'James Clear',
     isbn: '9780735211292',
     year: 2018,
-    status: 'read',
-  },
-  {
-    title: 'The Phoenix Project',
-    author: 'Gene Kim, Kevin Behr & George Spafford',
-    isbn: '9780988262592',
-    year: 2013,
-    status: 'read',
   },
 ]
