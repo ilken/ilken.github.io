@@ -1,4 +1,5 @@
 import { NowPlayingIcon } from '@/components/icons'
+import { MarqueeText } from '@/components/ui/MarqueeText'
 import { upscaleArtwork } from '@/lib/itunes'
 import { usePlayer } from '@/player/use-player'
 
@@ -21,7 +22,10 @@ export function NowPlayingPanel() {
             className="aspect-square w-full rounded-2xl object-cover shadow-card"
           />
           <div>
-            <p className="text-lg font-bold leading-tight text-ink">{current.title}</p>
+            <MarqueeText
+              text={current.title}
+              className="text-lg font-bold leading-tight text-ink"
+            />
             <p className="mt-1 text-sm text-ink-soft">{current.artist}</p>
           </div>
         </>

@@ -8,7 +8,7 @@ export function HomeHero({ tracks }: { tracks: PlayerTrack[] }) {
 
   return (
     <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ember to-ember-deep p-8 text-cream sm:p-10">
-      <div className="relative z-10 max-w-xl">
+      <div className="stagger relative z-10 max-w-xl">
         <p className="text-xs font-semibold tracking-[0.2em] text-cream/70 uppercase">
           Curated engineer
         </p>
@@ -43,7 +43,7 @@ export function HomeHero({ tracks }: { tracks: PlayerTrack[] }) {
       <img
         src={PROFILE.avatarUrl}
         alt={PROFILE.name}
-        className="absolute -right-6 bottom-0 hidden h-[115%] w-auto object-cover opacity-90 mix-blend-luminosity [mask-image:linear-gradient(to_left,black_60%,transparent)] sm:block"
+        className="animate-fade-in absolute -right-6 bottom-0 hidden h-[115%] w-auto object-cover opacity-90 mix-blend-luminosity [mask-image:linear-gradient(to_left,black_60%,transparent)] sm:block"
       />
     </section>
   )
