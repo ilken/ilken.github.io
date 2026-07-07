@@ -23,6 +23,8 @@ export const NAV_GROUPS: NavGroup[] = [
       { to: '/experience', label: 'Experience' },
       { to: '/education', label: 'Education' },
       { to: '/projects', label: 'Projects' },
+      { to: '/hobbies', label: 'Hobbies' },
+      { to: '/books', label: 'Books' },
     ],
   },
 ]

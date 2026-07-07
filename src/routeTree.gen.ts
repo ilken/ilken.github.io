@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SongsRouteImport } from './routes/songs'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as HobbiesRouteImport } from './routes/hobbies'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as EducationRouteImport } from './routes/education'
+import { Route as BooksRouteImport } from './routes/books'
 import { Route as AlbumsRouteImport } from './routes/albums'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -26,6 +28,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HobbiesRoute = HobbiesRouteImport.update({
+  id: '/hobbies',
+  path: '/hobbies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
   path: '/experience',
@@ -34,6 +41,11 @@ const ExperienceRoute = ExperienceRouteImport.update({
 const EducationRoute = EducationRouteImport.update({
   id: '/education',
   path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlbumsRoute = AlbumsRouteImport.update({
@@ -50,16 +62,20 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/albums': typeof AlbumsRoute
+  '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/albums': typeof AlbumsRoute
+  '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
 }
@@ -67,8 +83,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/albums': typeof AlbumsRoute
+  '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
 }
@@ -77,18 +95,30 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/albums'
+    | '/books'
     | '/education'
     | '/experience'
+    | '/hobbies'
     | '/projects'
     | '/songs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/albums' | '/education' | '/experience' | '/projects' | '/songs'
+  to:
+    | '/'
+    | '/albums'
+    | '/books'
+    | '/education'
+    | '/experience'
+    | '/hobbies'
+    | '/projects'
+    | '/songs'
   id:
     | '__root__'
     | '/'
     | '/albums'
+    | '/books'
     | '/education'
     | '/experience'
+    | '/hobbies'
     | '/projects'
     | '/songs'
   fileRoutesById: FileRoutesById
@@ -96,8 +126,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlbumsRoute: typeof AlbumsRoute
+  BooksRoute: typeof BooksRoute
   EducationRoute: typeof EducationRoute
   ExperienceRoute: typeof ExperienceRoute
+  HobbiesRoute: typeof HobbiesRoute
   ProjectsRoute: typeof ProjectsRoute
   SongsRoute: typeof SongsRoute
 }
@@ -118,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hobbies': {
+      id: '/hobbies'
+      path: '/hobbies'
+      fullPath: '/hobbies'
+      preLoaderRoute: typeof HobbiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experience': {
       id: '/experience'
       path: '/experience'
@@ -130,6 +169,13 @@ declare module '@tanstack/react-router' {
       path: '/education'
       fullPath: '/education'
       preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/albums': {
@@ -152,8 +198,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlbumsRoute: AlbumsRoute,
+  BooksRoute: BooksRoute,
   EducationRoute: EducationRoute,
   ExperienceRoute: ExperienceRoute,
+  HobbiesRoute: HobbiesRoute,
   ProjectsRoute: ProjectsRoute,
   SongsRoute: SongsRoute,
 }
