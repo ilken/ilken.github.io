@@ -9,6 +9,8 @@ export interface ProjectEntry {
   role: string
   monogram: string
   accentClass: string
+  /** Screenshot of the live app; falls back to the monogram header when absent. */
+  imageUrl?: string
   links: ProjectLink[]
 }
 
@@ -19,7 +21,11 @@ export const PROJECTS: ProjectEntry[] = [
     role: 'Co-creator',
     monogram: '♪',
     accentClass: 'from-ember to-ember-deep',
-    links: [{ label: 'Product Hunt', url: 'https://www.producthunt.com/products/songlio' }],
+    imageUrl: '/projects/songlio.jpg',
+    links: [
+      { label: 'Live', url: 'https://songl.io' },
+      { label: 'Product Hunt', url: 'https://www.producthunt.com/products/songlio' },
+    ],
   },
   {
     name: 'WC26 Sweepstake',
@@ -27,7 +33,11 @@ export const PROJECTS: ProjectEntry[] = [
     role: 'Creator',
     monogram: '⚽',
     accentClass: 'from-[#1f6f50] to-[#123f2e]',
-    links: [{ label: 'GitHub', url: 'https://github.com/ilken/wc26-sweepstake' }],
+    imageUrl: '/projects/wc26-sweepstake.jpg',
+    links: [
+      { label: 'Live', url: 'https://ilken.github.io/wc26-sweepstake/' },
+      { label: 'GitHub', url: 'https://github.com/ilken/wc26-sweepstake' },
+    ],
   },
   {
     name: 'PLAI',
@@ -35,9 +45,10 @@ export const PROJECTS: ProjectEntry[] = [
     role: 'Creator',
     monogram: '⚡',
     accentClass: 'from-[#3d2e6b] to-[#241a44]',
+    imageUrl: '/projects/plai.jpg',
     links: [
-      { label: 'GitHub', url: 'https://github.com/ilken/plai' },
       { label: 'Live', url: 'https://www.plaifootball.com/' },
+      { label: 'GitHub', url: 'https://github.com/ilken/plai' },
     ],
   },
   {
@@ -46,6 +57,10 @@ export const PROJECTS: ProjectEntry[] = [
     role: 'Creator',
     monogram: '🏁',
     accentClass: 'from-[#8a1f1f] to-[#4d0f0f]',
-    links: [{ label: 'GitHub', url: 'https://github.com/ilken/f1-calendar' }],
+    imageUrl: '/projects/f1-calendar.jpg',
+    links: [
+      { label: 'Live', url: 'https://f1-calendar-one.vercel.app' },
+      { label: 'GitHub', url: 'https://github.com/ilken/f1-calendar' },
+    ],
   },
 ]

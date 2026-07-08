@@ -22,12 +22,23 @@ function ProjectsPage() {
 
 function ProjectCard({ project }: { project: ProjectEntry }) {
   return (
-    <article className="overflow-hidden rounded-2xl bg-cream-raised shadow-card transition-transform duration-250 hover:-translate-y-0.5">
-      <div
-        className={`grid h-28 place-items-center bg-gradient-to-br text-5xl ${project.accentClass}`}
-      >
-        <span aria-hidden>{project.monogram}</span>
-      </div>
+    <article className="group overflow-hidden rounded-2xl bg-cream-raised shadow-card transition-transform duration-250 hover:-translate-y-0.5">
+      {project.imageUrl ? (
+        <div className="h-36 overflow-hidden">
+          <img
+            src={project.imageUrl}
+            alt={`${project.name} screenshot`}
+            loading="lazy"
+            className="h-full w-full object-cover object-top transition-transform duration-250 group-hover:scale-[1.03]"
+          />
+        </div>
+      ) : (
+        <div
+          className={`grid h-36 place-items-center bg-gradient-to-br text-5xl ${project.accentClass}`}
+        >
+          <span aria-hidden>{project.monogram}</span>
+        </div>
+      )}
       <div className="p-5">
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-lg font-bold text-ink">{project.name}</h3>
