@@ -146,3 +146,19 @@ export function CloseIcon({ className }: IconProps) {
     </svg>
   )
 }
+
+export function OfficeIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16h2v-9h3a1 1 0 0 1 1 1v8h1v2H3v-2h1Zm3-13h2v2H7V8Zm4 0h2v2h-2V8ZM7 12h2v2H7v-2Zm4 0h2v2h-2v-2Zm-4 4h2v2H7v-2Zm4 0h2v2h-2v-2Z" />
+    </svg>
+  )
+}
+
+export function TrophyIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M7 2h10v2h4v2.5a5 5 0 0 1-4.3 4.95A6.5 6.5 0 0 1 13 14.92V18h4v2H7v-2h4v-3.08a6.5 6.5 0 0 1-3.7-3.47A5 5 0 0 1 3 6.5V4h4V2ZM5 6v.5a3 3 0 0 0 1.9 2.79A10.5 10.5 0 0 1 6.1 6H5Zm14 0h-1.1a10.5 10.5 0 0 1-.8 3.29A3 3 0 0 0 19 6.5V6Z" />
+    </svg>
+  )
+}

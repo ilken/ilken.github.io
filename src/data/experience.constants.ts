@@ -5,6 +5,8 @@ export interface ExperienceEntry {
   duration: string
   location: string
   current?: boolean
+  /** Company logo in public/logos; rows fall back to the office icon when absent. */
+  logoUrl?: string
 }
 
 export const EXPERIENCE: ExperienceEntry[] = [
@@ -15,6 +17,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     duration: '2 yr 9 mo',
     location: 'London, UK',
     current: true,
+    logoUrl: '/logos/equals.png',
   },
   {
     company: 'Fair.xyz',
@@ -23,6 +26,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     duration: '3 yr 10 mo',
     location: 'London, UK',
     current: true,
+    logoUrl: '/logos/fair.png',
   },
   {
     company: 'Encore Musicians',
@@ -30,6 +34,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Dec 2018 – Aug 2022',
     duration: '3 yr 9 mo',
     location: 'London, UK',
+    logoUrl: '/logos/encore.png',
   },
   {
     company: 'Encore Musicians',
@@ -37,6 +42,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Feb 2017 – Nov 2018',
     duration: '1 yr 10 mo',
     location: 'London, UK',
+    logoUrl: '/logos/encore.png',
   },
   {
     company: 'Playtech',
@@ -44,6 +50,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Nov 2015 – Feb 2017',
     duration: '1 yr 4 mo',
     location: 'London, UK',
+    logoUrl: '/logos/playtech.png',
   },
   {
     company: 'Firmstep',
@@ -58,5 +65,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Jul 2012 – Jun 2013',
     duration: '1 yr',
     location: 'Oldham, UK',
+    logoUrl: '/logos/webapps.png',
   },
 ]
