@@ -16,6 +16,18 @@ export interface ProjectEntry {
 
 export const PROJECTS: ProjectEntry[] = [
   {
+    name: 'Boulevard Dex',
+    tagline: 'Pokédex-style collection tracker for the Hot Wheels Boulevard premium line.',
+    role: 'Creator',
+    monogram: '🚗',
+    accentClass: 'from-[#1b2233] to-[#0d1119]',
+    imageUrl: '/projects/boulevard-dex.jpg',
+    links: [
+      { label: 'Live', url: 'https://ilken.github.io/boulevard-dex/' },
+      { label: 'GitHub', url: 'https://github.com/ilken/boulevard-dex' },
+    ],
+  },
+  {
     name: 'Songlio',
     tagline: 'A daily music guessing game — name the song from a short clip.',
     role: 'Co-creator',
