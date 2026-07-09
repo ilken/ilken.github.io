@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react'
 import { OfficeIcon } from '@/components/icons'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { EXPERIENCE, type ExperienceEntry } from '@/data/experience.constants'
+import { trackEvent } from '@/lib/analytics'
 
 export const Route = createFileRoute('/experience')({ component: ExperiencePage })
 
@@ -45,9 +46,16 @@ function CompanyBadge({ company, logoUrl }: { company: string; logoUrl?: string 
   )
 }
 
+const ROW_CLASSES =
+  'group flex items-center gap-4 rounded-xl px-3 py-3 transition-colors duration-150 hover:bg-cream-raised'
+
 function ExperienceRow({ entry, index }: { entry: ExperienceEntry; index: number }) {
-  return (
-    <div className="group flex items-center gap-4 rounded-xl px-3 py-3 transition-colors duration-150 hover:bg-cream-raised">
+  const handleClick = useCallback(() => {
+    trackEvent('company_click', { company: entry.company, link_url: entry.websiteUrl })
+  }, [entry.company, entry.websiteUrl])
+
+  const content = (
+    <>
       <span className="w-5 text-sm tabular-nums text-ink-muted">{index + 1}</span>
       <CompanyBadge company={entry.company} logoUrl={entry.logoUrl} />
       <div className="min-w-0 flex-1">
@@ -63,6 +71,20 @@ function ExperienceRow({ entry, index }: { entry: ExperienceEntry; index: number
           {entry.current && <span className="ml-2 font-semibold text-ember">● now playing</span>}
         </p>
       </div>
-    </div>
+    </>
+  )
+
+  if (!entry.websiteUrl) return <div className={ROW_CLASSES}>{content}</div>
+
+  return (
+    <a
+      href={entry.websiteUrl}
+      target="_blank"
+      rel="noreferrer"
+      onClick={handleClick}
+      className={ROW_CLASSES}
+    >
+      {content}
+    </a>
   )
 }
