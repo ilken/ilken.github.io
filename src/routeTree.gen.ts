@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SongsRouteImport } from './routes/songs'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as HobbiesRouteImport } from './routes/hobbies'
+import { Route as GamesRouteImport } from './routes/games'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as BooksRouteImport } from './routes/books'
@@ -31,6 +32,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
 const HobbiesRoute = HobbiesRouteImport.update({
   id: '/hobbies',
   path: '/hobbies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/games': typeof GamesRoute
   '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/games': typeof GamesRoute
   '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/books': typeof BooksRoute
   '/education': typeof EducationRoute
   '/experience': typeof ExperienceRoute
+  '/games': typeof GamesRoute
   '/hobbies': typeof HobbiesRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/books'
     | '/education'
     | '/experience'
+    | '/games'
     | '/hobbies'
     | '/projects'
     | '/songs'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/books'
     | '/education'
     | '/experience'
+    | '/games'
     | '/hobbies'
     | '/projects'
     | '/songs'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/books'
     | '/education'
     | '/experience'
+    | '/games'
     | '/hobbies'
     | '/projects'
     | '/songs'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   BooksRoute: typeof BooksRoute
   EducationRoute: typeof EducationRoute
   ExperienceRoute: typeof ExperienceRoute
+  GamesRoute: typeof GamesRoute
   HobbiesRoute: typeof HobbiesRoute
   ProjectsRoute: typeof ProjectsRoute
   SongsRoute: typeof SongsRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/hobbies'
       fullPath: '/hobbies'
       preLoaderRoute: typeof HobbiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   BooksRoute: BooksRoute,
   EducationRoute: EducationRoute,
   ExperienceRoute: ExperienceRoute,
+  GamesRoute: GamesRoute,
   HobbiesRoute: HobbiesRoute,
   ProjectsRoute: ProjectsRoute,
   SongsRoute: SongsRoute,

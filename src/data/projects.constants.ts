@@ -11,10 +11,25 @@ export interface ProjectEntry {
   accentClass: string
   /** Screenshot of the live app; falls back to the monogram header when absent. */
   imageUrl?: string
+  /** Games also appear on the /games tab. */
+  category?: 'game'
   links: ProjectLink[]
 }
 
 export const PROJECTS: ProjectEntry[] = [
+  {
+    name: 'Minechester Reborn',
+    tagline: 'Minesweeper made in Manchester — a 2014 Windows 8 game reborn as a modern web app.',
+    role: 'Creator',
+    monogram: '💣',
+    accentClass: 'from-[#7c3aed] to-[#2e1065]',
+    imageUrl: '/projects/minechester-reborn.jpg',
+    category: 'game',
+    links: [
+      { label: 'Live', url: 'https://ilken.github.io/minechester-reborn/' },
+      { label: 'GitHub', url: 'https://github.com/ilken/minechester-reborn' },
+    ],
+  },
   {
     name: 'Boulevard Dex',
     tagline: 'Pokédex-style collection tracker for the Hot Wheels Boulevard premium line.',
@@ -34,6 +49,7 @@ export const PROJECTS: ProjectEntry[] = [
     monogram: '♪',
     accentClass: 'from-ember to-ember-deep',
     imageUrl: '/projects/songlio.jpg',
+    category: 'game',
     links: [
       { label: 'Live', url: 'https://songl.io' },
       { label: 'Product Hunt', url: 'https://www.producthunt.com/products/songlio' },
@@ -76,3 +92,5 @@ export const PROJECTS: ProjectEntry[] = [
     ],
   },
 ]
+
+export const GAMES = PROJECTS.filter((project) => project.category === 'game')
