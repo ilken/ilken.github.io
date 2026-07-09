@@ -10,7 +10,7 @@ export function PlayerBar() {
   const progress = hasTrack && duration > 0 ? currentTime / duration : 0
 
   return (
-    <footer className="mx-3 mb-3 flex items-center gap-4 rounded-2xl bg-chrome px-4 py-3 shadow-bar sm:gap-6 sm:px-6">
+    <footer className="mx-3 mb-3 grid grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-2xl bg-chrome px-4 py-3 shadow-bar sm:gap-6 sm:px-6">
       <div className="flex w-44 min-w-0 items-center gap-3 sm:w-56">
         {hasTrack ? (
           <>
@@ -73,7 +73,7 @@ export function PlayerBar() {
         </button>
       </div>
 
-      <div className="hidden flex-1 items-center gap-4 md:flex">
+      <div className="hidden min-w-0 items-center justify-end gap-4 md:flex">
         <Waveform
           seed={current?.id ?? 0}
           progress={progress}
