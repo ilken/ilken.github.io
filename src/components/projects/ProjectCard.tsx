@@ -1,7 +1,21 @@
+import { useCallback } from 'react'
+
 import { ExternalLinkIcon } from '@/components/icons'
-import type { ProjectEntry } from '@/data/projects.constants'
+import type { ProjectEntry, ProjectLink } from '@/data/projects.constants'
+import { trackEvent } from '@/lib/analytics'
 
 export function ProjectCard({ project }: { project: ProjectEntry }) {
+  const handleLinkClick = useCallback(
+    (link: ProjectLink) => () => {
+      trackEvent('project_link_click', {
+        project_name: project.name,
+        link_label: link.label,
+        link_url: link.url,
+      })
+    },
+    [project.name],
+  )
+
   return (
     <article className="group overflow-hidden rounded-2xl bg-cream-raised shadow-card transition-transform duration-250 hover:-translate-y-0.5">
       {project.imageUrl ? (
@@ -35,6 +49,7 @@ export function ProjectCard({ project }: { project: ProjectEntry }) {
               href={link.url}
               target="_blank"
               rel="noreferrer"
+              onClick={handleLinkClick(link)}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline-offset-4 transition-colors duration-150 hover:text-ember hover:underline"
             >
               {link.label}
