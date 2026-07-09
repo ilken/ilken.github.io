@@ -17,7 +17,7 @@ export function Sidebar() {
   )
 
   return (
-    <aside className="hidden w-56 shrink-0 flex-col gap-8 px-6 py-8 md:flex">
+    <aside className="hidden w-56 shrink-0 flex-col gap-8 px-6 py-8 lg:flex">
       <Link to="/" className="flex items-center gap-2 px-3" onClick={handleLogoClick}>
         <span className="size-2.5 rounded-full bg-lime" aria-hidden />
         <span className="text-lg font-bold tracking-tight text-chrome-text">ilken</span>
