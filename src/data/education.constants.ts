@@ -1,4 +1,6 @@
 export interface EducationAchievement {
+  /** Heading shown above the achievement, e.g. the society it was won with. */
+  title?: string
   label: string
   url: string
   /** Photo in public/education shown framed next to the achievement. */
@@ -12,7 +14,7 @@ export interface EducationEntry {
   field: string
   grade: string
   period: string
-  note: string
+  note?: string
   achievement?: EducationAchievement
 }
 
@@ -23,8 +25,8 @@ export const EDUCATION: EducationEntry[] = [
     field: 'Software Engineering with Industrial Experience',
     grade: 'First Class',
     period: '2009 – 2014',
-    note: 'University of Manchester Chess Society',
     achievement: {
+      title: 'University of Manchester Chess Society',
       label: 'Wahltuch Trophy winner — 2011 & 2012',
       url: 'https://www.manchesterchess.co.uk/competitions/previous-trophy-winners/',
       imageUrl: '/education/wahltuch-trophy.jpg',

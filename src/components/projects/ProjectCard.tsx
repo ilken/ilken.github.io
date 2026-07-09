@@ -16,6 +16,8 @@ export function ProjectCard({ project }: { project: ProjectEntry }) {
     [project.name],
   )
 
+  const liveUrl = project.links.find((link) => link.label === 'Live')?.url
+
   return (
     <article className="group overflow-hidden rounded-2xl bg-cream-raised shadow-card transition-transform duration-250 hover:-translate-y-0.5">
       {project.imageUrl ? (
@@ -36,7 +38,21 @@ export function ProjectCard({ project }: { project: ProjectEntry }) {
       )}
       <div className="p-5">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-lg font-bold text-ink">{project.name}</h3>
+          <h3 className="text-lg font-bold text-ink">
+            {liveUrl ? (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={handleLinkClick({ label: 'Title', url: liveUrl })}
+                className="underline-offset-4 transition-colors duration-150 hover:text-ember hover:underline"
+              >
+                {project.name}
+              </a>
+            ) : (
+              project.name
+            )}
+          </h3>
           <span className="rounded-full bg-chrome px-3 py-1 text-xs font-semibold text-lime">
             {project.role}
           </span>

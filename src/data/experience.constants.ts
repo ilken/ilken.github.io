@@ -7,6 +7,8 @@ export interface ExperienceEntry {
   current?: boolean
   /** Company logo in public/logos; rows fall back to the office icon when absent. */
   logoUrl?: string
+  /** Company site; the whole row links out when present. */
+  websiteUrl?: string
 }
 
 export const EXPERIENCE: ExperienceEntry[] = [
@@ -18,15 +20,16 @@ export const EXPERIENCE: ExperienceEntry[] = [
     location: 'London, UK',
     current: true,
     logoUrl: '/logos/equals.png',
+    websiteUrl: 'https://equa.ls',
   },
   {
     company: 'Fair.xyz',
     title: 'Senior Full Stack Engineer',
-    period: 'Sep 2022 – Present',
-    duration: '3 yr 10 mo',
+    period: 'Sep 2022 – Mar 2026',
+    duration: '3 yr 7 mo',
     location: 'London, UK',
-    current: true,
     logoUrl: '/logos/fair.png',
+    websiteUrl: 'https://fair.xyz',
   },
   {
     company: 'Encore Musicians',
@@ -35,6 +38,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     duration: '3 yr 9 mo',
     location: 'London, UK',
     logoUrl: '/logos/encore.png',
+    websiteUrl: 'https://encoremusicians.com',
   },
   {
     company: 'Encore Musicians',
@@ -43,6 +47,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     duration: '1 yr 10 mo',
     location: 'London, UK',
     logoUrl: '/logos/encore.png',
+    websiteUrl: 'https://encoremusicians.com',
   },
   {
     company: 'Playtech',
@@ -58,6 +63,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Aug 2014 – Nov 2015',
     duration: '1 yr 4 mo',
     location: 'London, UK',
+    logoUrl: '/logos/firmstep.svg',
   },
   {
     company: 'Web Applications UK',
