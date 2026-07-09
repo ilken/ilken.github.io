@@ -1,5 +1,6 @@
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { trackEvent } from '@/lib/analytics'
 import type { PlayerTrack } from '@/player/player.types'
 import { PlayerContext } from '@/player/player-context'
 
@@ -31,9 +32,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     setDuration(track.durationMs / 1000)
     audio.src = track.previewUrl
     void audio.play().catch(() => setIsPlaying(false))
+    trackEvent('player_play', { track_title: track.title, track_artist: track.artist })
   }, [])
 
-  const next = useCallback(() => {
+  const advance = useCallback(() => {
     const { queue, index } = queueRef.current
     if (index < queue.length - 1) {
       playAt(queue, index + 1)
@@ -43,10 +45,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
   }, [playAt])
 
-  const nextRef = useRef(next)
+  const next = useCallback(() => {
+    trackEvent('player_next')
+    advance()
+  }, [advance])
+
+  const advanceRef = useRef(advance)
   useEffect(() => {
-    nextRef.current = next
-  }, [next])
+    advanceRef.current = advance
+  }, [advance])
 
   useEffect(() => {
     const audio = new Audio()
@@ -55,7 +62,14 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
     const onTimeUpdate = () => setCurrentTime(audio.currentTime)
     const onLoadedMetadata = () => setDuration(audio.duration)
-    const onEnded = () => nextRef.current()
+    const onEnded = () => {
+      const { queue, index } = queueRef.current
+      const track = queue[index]
+      if (track) {
+        trackEvent('track_completed', { track_title: track.title, track_artist: track.artist })
+      }
+      advanceRef.current()
+    }
     const onPlay = () => setIsPlaying(true)
     const onPause = () => setIsPlaying(false)
 
@@ -84,11 +98,14 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const toggle = useCallback(() => {
     const audio = audioRef.current
     const { queue, index } = queueRef.current
-    if (!audio || index < 0 || !queue[index]) return
+    const track = queue[index]
+    if (!audio || index < 0 || !track) return
     if (audio.paused) {
       void audio.play().catch(() => setIsPlaying(false))
+      trackEvent('player_resume', { track_title: track.title })
     } else {
       audio.pause()
+      trackEvent('player_pause', { track_title: track.title })
     }
   }, [])
 
@@ -96,6 +113,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current
     const { queue, index } = queueRef.current
     if (!audio || index < 0) return
+    trackEvent('player_prev')
     if (audio.currentTime > RESTART_THRESHOLD_SECONDS || index === 0) {
       audio.currentTime = 0
       return
