@@ -9,7 +9,7 @@ function EducationPage() {
   return (
     <div className="stagger">
       <SectionHeader title="Education" />
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-5">
         {EDUCATION.map((entry) => (
           <article
             key={`${entry.degree}-${entry.period}`}
