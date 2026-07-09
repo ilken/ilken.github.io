@@ -18,6 +18,19 @@ export interface ProjectEntry {
 
 export const PROJECTS: ProjectEntry[] = [
   {
+    name: 'Colour Rush',
+    tagline: 'Spot the odd colour out before the timer runs out — a PixiJS arcade game.',
+    role: 'Creator',
+    monogram: '🎨',
+    accentClass: 'from-[#14b8a6] to-[#0f3d3a]',
+    imageUrl: '/projects/colour-rush.jpg',
+    category: 'game',
+    links: [
+      { label: 'Live', url: 'https://ilken.github.io/GameOfColours/' },
+      { label: 'GitHub', url: 'https://github.com/ilken/GameOfColours' },
+    ],
+  },
+  {
     name: 'Minechester Reborn',
     tagline: 'Minesweeper made in Manchester — a 2014 Windows 8 game reborn as a modern web app.',
     role: 'Creator',
