@@ -1,3 +1,11 @@
+export interface EducationAchievement {
+  label: string
+  url: string
+  /** Photo in public/education shown framed next to the achievement. */
+  imageUrl?: string
+  imageAlt?: string
+}
+
 export interface EducationEntry {
   school: string
   degree: string
@@ -5,6 +13,7 @@ export interface EducationEntry {
   grade: string
   period: string
   note: string
+  achievement?: EducationAchievement
 }
 
 export const EDUCATION: EducationEntry[] = [
@@ -15,13 +24,11 @@ export const EDUCATION: EducationEntry[] = [
     grade: 'First Class',
     period: '2009 – 2014',
     note: 'University of Manchester Chess Society',
-  },
-  {
-    school: 'The University of Manchester',
-    degree: 'Foundation Studies',
-    field: 'Computer Software Engineering',
-    grade: 'First Class',
-    period: '2009 – 2010',
-    note: 'Faculty of Engineering and Physical Sciences',
+    achievement: {
+      label: 'Wahltuch Trophy winner — 2011 & 2012',
+      url: 'https://www.manchesterchess.co.uk/competitions/previous-trophy-winners/',
+      imageUrl: '/education/wahltuch-trophy.jpg',
+      imageAlt: 'Ilken holding the Wahltuch Trophy',
+    },
   },
 ]

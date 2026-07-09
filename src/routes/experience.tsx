@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useCallback, useState } from 'react'
 
+import { OfficeIcon } from '@/components/icons'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { EXPERIENCE, type ExperienceEntry } from '@/data/experience.constants'
 
@@ -21,13 +23,33 @@ function ExperiencePage() {
   )
 }
 
+function CompanyBadge({ company, logoUrl }: { company: string; logoUrl?: string }) {
+  const [failed, setFailed] = useState(false)
+  const handleError = useCallback(() => setFailed(true), [])
+  const showLogo = Boolean(logoUrl) && !failed
+
+  return (
+    <span className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-white ring-1 ring-cream-sunken">
+      {showLogo ? (
+        <img
+          src={logoUrl}
+          alt={`${company} logo`}
+          loading="lazy"
+          onError={handleError}
+          className="size-9 object-contain"
+        />
+      ) : (
+        <OfficeIcon className="size-6 text-ink-muted" />
+      )}
+    </span>
+  )
+}
+
 function ExperienceRow({ entry, index }: { entry: ExperienceEntry; index: number }) {
   return (
     <div className="group flex items-center gap-4 rounded-xl px-3 py-3 transition-colors duration-150 hover:bg-cream-raised">
       <span className="w-5 text-sm tabular-nums text-ink-muted">{index + 1}</span>
-      <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-chrome text-sm font-bold text-chrome-text">
-        {entry.company.slice(0, 2).toUpperCase()}
-      </span>
+      <CompanyBadge company={entry.company} logoUrl={entry.logoUrl} />
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold text-ink">{entry.title}</p>
         <p className="truncate text-xs text-ink-muted">
