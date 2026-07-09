@@ -12,7 +12,7 @@ function RootLayout() {
     <div className="flex h-dvh flex-col">
       <div className="flex min-h-0 flex-1">
         <Sidebar />
-        <div className="mx-3 mt-3 flex min-w-0 flex-1 gap-3 md:ml-0">
+        <div className="mx-3 mt-3 flex min-w-0 flex-1 gap-3 lg:ml-0">
           <main className="flex min-w-0 flex-1 flex-col overflow-y-auto rounded-2xl bg-cream">
             <TopBar />
             <div className="flex-1 px-5 pt-4 pb-10 sm:px-8">

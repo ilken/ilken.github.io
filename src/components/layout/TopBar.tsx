@@ -2,6 +2,7 @@ import { useRouterState } from '@tanstack/react-router'
 import { useCallback } from 'react'
 
 import { GitHubIcon, LinkedInIcon } from '@/components/icons'
+import { MobileNav } from '@/components/layout/MobileNav'
 import { breadcrumbFor } from '@/components/layout/nav.constants'
 import { PROFILE } from '@/data/profile.constants'
 import { trackEvent } from '@/lib/analytics'
@@ -20,7 +21,8 @@ export function TopBar() {
 
   return (
     <header className="flex items-center justify-between gap-4 px-8 pt-7 pb-2">
-      <p className="text-sm font-medium text-ink-muted">
+      <MobileNav />
+      <p className="hidden text-sm font-medium text-ink-muted lg:block">
         {crumb.group}
         <span className="mx-2 text-ink-muted/60">›</span>
         <span className="font-semibold text-ink">{crumb.label}</span>
