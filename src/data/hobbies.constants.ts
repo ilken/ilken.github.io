@@ -22,7 +22,7 @@ export const HOBBIES: HobbyEntry[] = [
     stats: ['Premier League', 'Built PLAI'],
     monogram: '⚽',
     accentClass: 'from-[#1f6f50] to-[#123f2e]',
-    links: [{ label: 'PLAI', url: 'https://www.plaifootball.com/' }],
+    links: [{ label: 'PLAI', url: 'https://plai-orcin.vercel.app' }],
   },
   {
     name: 'Chess',

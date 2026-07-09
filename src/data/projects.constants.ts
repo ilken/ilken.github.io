@@ -88,7 +88,7 @@ export const PROJECTS: ProjectEntry[] = [
     accentClass: 'from-[#3d2e6b] to-[#241a44]',
     imageUrl: '/projects/plai.jpg',
     links: [
-      { label: 'Live', url: 'https://www.plaifootball.com/' },
+      { label: 'Live', url: 'https://plai-orcin.vercel.app' },
       { label: 'GitHub', url: 'https://github.com/ilken/plai' },
     ],
   },
